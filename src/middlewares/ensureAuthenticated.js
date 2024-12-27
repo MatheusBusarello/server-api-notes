@@ -6,7 +6,7 @@ function ensureAuthenticated(request, response, next){
   const authHeader = request.headers.authorization;
 
   if(!authHeader){
-    throw new AppError("JWT Token não informado", 401);
+    throw new AppError("JWT Token not provided", 401);
   }
 
   const[, token] = authHeader.split(" ");
@@ -20,8 +20,8 @@ function ensureAuthenticated(request, response, next){
 
     return next();
   }catch {
-    throw new AppError("JWT Token inválido", 401);
+    throw new AppError("JWT invalid Token", 401);
   }
 }
 
-module.exports = ensureAuthenticated
+module.exports = ensureAuthenticated;
