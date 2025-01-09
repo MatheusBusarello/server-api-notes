@@ -1,11 +1,14 @@
+//padronizando a mensagem de erro
 class AppError {
-  message;
-  statusCode;
+  //variáveis globais
+  message
+  statusCode
 
-  constructor(message, statusCode = 400) {
-    this.message = message;
-    this.statusCode =statusCode;
+  //método construtor
+  constructor(message, statusCode = 400){
+    this.message = message
+    this.statusCode = statusCode
   }
 }
 
-module.exports = AppError;
+module.exports = AppError

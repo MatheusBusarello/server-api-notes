@@ -1,19 +1,23 @@
-const { Router } = require("express");
-const multer = require("multer");
+const { Router } = require("express") //importando o express
+const multer = require("multer")
 const uploadConfig = require("../configs/upload")
 
-const UsersController = require("../controllers/UsersController");
-const UserAvatarController = require("../controllers/UserAvatarController")
-const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
+const UsersController = require("../controllers/UsersController")//importando o controller
+const UserAvatarController = require("../controllers/UserAvatarController")//importando o controller
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated")//importando o middlewares
 
-const userRoutes = Router();
+const usersRoutes = Router()
 const upload = multer(uploadConfig.MULTER)
 
-const usersController = new UsersController();
-const userAvatarController = new UserAvatarController();
+//instanciando objetos
+const usersController = new UsersController()
+const userAvatarController = new UserAvatarController()
 
-userRoutes.post("/", usersController.create);
-userRoutes.put("/", ensureAuthenticated, usersController.update);
-userRoutes.patch("/avatar", ensureAuthenticated, upload.single("avatar"), userAvatarController.update)
+/* POST */
+usersRoutes.post("/", usersController.create)
+/* PUT */
+usersRoutes.put("/", ensureAuthenticated, usersController.update)
+/* PATCH */
+usersRoutes.patch("/avatar", ensureAuthenticated, upload.single("avatar"), userAvatarController.update)
 
-module.exports = userRoutes;
+module.exports = usersRoutes //exportando para quem quiser usar
