@@ -3,7 +3,7 @@ const path = require("path")
 const multer = require("multer")
 const crypto = require("crypto")
 
-const TMP_FOLDER = path.resolve(__dirname, "..", "..", "tmp")//arquivo temporário
+const TMP_FOLDER = path.resolve(__dirname, "..", "..", "TMP")//arquivo temporário
 const UPLOADS_FOLDER = path.resolve(TMP_FOLDER, "uploads")//arquivo de uploads
 
 //configurações do multer onde vai armazenar os uploads
