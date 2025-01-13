@@ -36,4 +36,4 @@ class UserAvatarController {
   }
 }
 
-module.exports = UserAvatarController;
+module.exports = UserAvatarController
